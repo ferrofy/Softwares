@@ -1,276 +1,93 @@
-// RED Light Input and Var
+// =======================================| Lights |=======================================
 
-int R_1 = A0;
-int R_2 = A1;
-byte RED = 0;
+int R = 9;
+int G = 10;
+int B = 11;
 
-// Green Light Input and Var
+// =======================================| Delay n Steps |=======================================
 
-int G_1 = A2;
-int G_2 = A3;
-byte GREEN = 0;
+int Fade_Time = 10000;
+int Steps = 255;
+int Delay_Time = Fade_Time / (Steps * 2);
 
-// Blue Light Input and Var
+// =======================================| Functions |=======================================
 
-int B_1 = A4;
-int B_2 = A5;
-byte BLUE = 0;
-
-// Basic Var
-
-byte i;
-byte del = 10;
-
-//==========================================| Setup |==========================================
-
-void setup() {
-
-  pinMode(R_1, OUTPUT);
-  pinMode(R_2, OUTPUT);
-
-  pinMode(G_1, OUTPUT);
-  pinMode(G_2, OUTPUT);
-
-  pinMode(B_1, OUTPUT);
-  pinMode(B_2, OUTPUT);
+void LED_High(int Color) {
+  for (int i = 0; i <= Steps; i++) {
+    analogWrite(Color, 255 - i);
+    delay(Delay_Time);
+  }
 }
 
-//==========================================| LOOP |==========================================
+void LED_Low(int Color) {
+  for (int i = Steps; i >= 0; i--) {
+    analogWrite(Color, 255 - i);
+    delay(Delay_Time);
+  }
+}
+
+void White_Color(int Color_1, int Color_2, int Color_3) {
+  for (int i = 0; i <= Steps; i++) {
+    analogWrite(Color_1, 255 - i);
+    analogWrite(Color_2, 255 - i);
+    analogWrite(Color_3, 255 - i);
+    delay(Delay_Time);
+  }
+  delay(Delay_Time);
+  for (int i = Steps; i >= 0; i--) {
+    analogWrite(Color_1, 255 - i);
+    analogWrite(Color_2, 255 - i);
+    analogWrite(Color_3, 255 - i);
+    delay(Delay_Time);
+  }
+}
+
+// =======================================| Setup |=======================================
+
+void setup() {
+  pinMode(R, OUTPUT);
+  pinMode(G, OUTPUT);
+  pinMode(B, OUTPUT);
+}
+
+// =======================================| Loop |=======================================
+
 
 void loop() {
 
-  //----------------------------------------| Anumation 1 |----------------------------------------
+  // White Color
 
-  // Red High
-  for (i = 0; i <= 255;) {
-    analogWrite(R_1, RED);
-    analogWrite(R_2, RED);
-    delay(del);
-    i++;
-    RED++;
-  }
+  White_Color(R, G, B);
 
-  // Red Low
-  for (i = 0; i <= 255;) {
-    analogWrite(R_1, RED);
-    analogWrite(R_2, RED);
-    delay(del);
-    i++;
-    RED--;
-  }
+  // One to Another Color
+  LED_High(R);
+  LED_Low(R);
+  LED_High(G);
+  LED_Low(G);
+  LED_High(B);
+  LED_Low(B);
 
-  // Green High
-  for (i = 0; i <= 255;) {
-    analogWrite(G_1, GREEN);
-    analogWrite(G_2, GREEN);
-    delay(del);
-    i++;
-    GREEN++;
-  }
+  // Two To Another Color
+  LED_High(R);
+  LED_High(G);
+  LED_Low(R);
+  LED_High(B);
+  LED_Low(G);
+  LED_High(R);
+  LED_Low(B);
+  LED_Low(R);
 
-  // Green Low
-  for (i = 0; i <= 255;) {
-    analogWrite(G_1, GREEN);
-    analogWrite(G_2, GREEN);
-    delay(del);
-    i++;
-    GREEN--;
-  }
-
-  // Blue High
-  for (i = 0; i <= 255;) {
-    analogWrite(B_1, BLUE);
-    analogWrite(B_2, BLUE);
-    delay(del);
-    i++;
-    BLUE++;
-  }
-
-  // Blue Low
-  for (i = 0; i <= 255;) {
-    analogWrite(B_1, BLUE);
-    analogWrite(B_2, BLUE);
-    delay(del);
-    i++;
-    BLUE--;
-  }
-
-  //----------------------------------------| Anumation 2 |----------------------------------------
-
-  // Red High
-  for (i = 0; i <= 255;) {
-    analogWrite(R_1, RED);
-    analogWrite(R_2, RED);
-    delay(del);
-    i++;
-    RED++;
-  }
-
-  // Green High
-  for (i = 0; i <= 255;) {
-    analogWrite(G_1, GREEN);
-    analogWrite(G_2, GREEN);
-    delay(del);
-    i++;
-    GREEN++;
-  }
-
-  // Red Low
-  for (i = 0; i <= 255;) {
-    analogWrite(R_1, RED);
-    analogWrite(R_2, RED);
-    delay(del);
-    i++;
-    RED--;
-  }
-
-  // Blue High
-  for (i = 0; i <= 255;) {
-    analogWrite(B_1, BLUE);
-    analogWrite(B_2, BLUE);
-    delay(del);
-    i++;
-    BLUE++;
-  }
-
-  // Green Low
-  for (i = 0; i <= 255;) {
-    analogWrite(G_1, GREEN);
-    analogWrite(G_2, GREEN);
-    delay(del);
-    i++;
-    GREEN--;
-  }
-
-  // Red High
-  for (i = 0; i <= 255;) {
-    analogWrite(R_1, RED);
-    analogWrite(R_2, RED);
-    delay(del);
-    i++;
-    RED++;
-  }
-
-  // Blue Low
-  for (i = 0; i <= 255;) {
-    analogWrite(B_1, BLUE);
-    analogWrite(B_2, BLUE);
-    delay(del);
-    i++;
-    BLUE--;
-  }
-
-  // Red Low
-  for (i = 0; i <= 255;) {
-    analogWrite(R_1, RED);
-    analogWrite(R_2, RED);
-    delay(del);
-    i++;
-    RED--;
-  }
-
-  //----------------------------------------| Anumation 3 |----------------------------------------
-
-  // Red High | Green High
-  for (i = 0; i <= 255;) {
-    analogWrite(R_1, RED);
-    analogWrite(R_2, RED);
-    analogWrite(G_1, GREEN);
-    analogWrite(G_2, GREEN);
-    delay(del);
-    i++;
-    RED++;
-    GREEN++;
-  }
-
-  // Red Low | Green Low
-  for (i = 0; i <= 255;) {
-    analogWrite(R_1, RED);
-    analogWrite(R_2, RED);
-    analogWrite(G_1, GREEN);
-    analogWrite(G_2, GREEN);
-    delay(del);
-    i++;
-    RED--;
-    GREEN--;
-  }
-
-  // Green High | Blue High
-  for (i = 0; i <= 255;) {
-    analogWrite(G_1, GREEN);
-    analogWrite(G_2, GREEN);
-    analogWrite(B_1, BLUE);
-    analogWrite(B_2, BLUE);
-    delay(del);
-    i++;
-    GREEN++;
-    BLUE++;
-  }
-
-  // Green Low | Blue Low
-  for (i = 0; i <= 255;) {
-    analogWrite(G_1, GREEN);
-    analogWrite(G_2, GREEN);
-    analogWrite(B_1, BLUE);
-    analogWrite(B_2, BLUE);
-    delay(del);
-    i++;
-    GREEN--;
-    BLUE--;
-  }
-
-  // Red High | Blue High
-  for (i = 0; i <= 255;) {
-    analogWrite(G_1, RED);
-    analogWrite(G_2, RED);
-    analogWrite(B_1, BLUE);
-    analogWrite(B_2, BLUE);
-    delay(del);
-    i++;
-    RED++;
-    BLUE++;
-  }
-
-  // Red Low | Blue Low
-  for (i = 0; i <= 255;) {
-    analogWrite(G_1, RED);
-    analogWrite(G_2, RED);
-    analogWrite(B_1, BLUE);
-    analogWrite(B_2, BLUE);
-    delay(del);
-    i++;
-    RED--;
-    BLUE--;
-  }
-
-  //----------------------------------------| Anumation 4 |----------------------------------------
-
-  for (i = 0; i<=255;) {
-    analogWrite(G_1, RED);
-    analogWrite(G_2, RED);
-    analogWrite(B_1, GREEN);
-    analogWrite(B_2, GREEN);
-    analogWrite(G_1,  BLUE);
-    analogWrite(G_2,  BLUE);
-    delay(del);
-    i++;
-    RED++;
-    GREEN++;
-    BLUE++;
-  }
-
-  for (i = 0; i<=255;) {
-    analogWrite(G_1, RED);
-    analogWrite(G_2, RED);
-    analogWrite(B_1, GREEN);
-    analogWrite(B_2, GREEN);
-    analogWrite(G_1,  BLUE);
-    analogWrite(G_2,  BLUE);
-    delay(del);
-    i++;
-    RED--;
-    GREEN--;
-    BLUE--;
-  }
-
+  // Three To Another Color
+  LED_High(R);
+  LED_High(G);
+  LED_High(B);
+  LED_Low(B);
+  LED_Low(G);
+  LED_Low(R);
+  LED_High(R);
+  LED_High(G);
+  LED_High(B);
+  LED_Low(R);
+  LED_Low(G);
+  LED_Low(B);
 }
