@@ -1,8 +1,8 @@
 # Librarys
-import pyautogui
 import time
-import keyboard
 import random
+import pyautogui
+import keyboard
 
 from Files import Spamming_Text
 from Files import Entry
