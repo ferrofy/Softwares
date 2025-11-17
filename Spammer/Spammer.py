@@ -42,9 +42,9 @@ Message_Sent = 0
 Start_Time = time.time()
 
 # Key To Stop Spammer
-def on_key(event):
+def on_key(Clicked_Key):
     global Work
-    if event.name.lower() == "z":
+    if Clicked_Key.name.lower() == "z":
         Work = False
 keyboard.on_press(on_key)
 
