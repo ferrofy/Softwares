@@ -1,18 +1,26 @@
-def Make_File():
-    Files_To_Make = int(input("How Much Files You Want to Make ---> "))
-    File_Name = input("What Sould Be Name Of File You Want ---> ")
-    Type_Of_File = input("What Type Of File You Want | Default 'txt' ---> ")
-    Data_Inside_File = input("What Data You Want Indide File ---> ")
-    #Try To make File Like A User Can Add Multiple Lines
+import os
+import sys
 
-    if Type_Of_File == "":
-        Type_Of_File == "txt"
-    else:
-        Type_Of_File = Type_Of_File
+from Files import File_Maker
+from Files import Delete_Files
 
-    for i in range(0,Files_To_Make):
-        File = open(f"{File_Name}{i}.{Type_Of_File}" , "w")
-        File.write(Data_Inside_File)
-        File.close()
+base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+sys.path.append(base_dir)
 
-Make_File()
+from FerroFy import Exit as E
+from FerroFy import Entry
+
+Entry.Main_Logo()
+
+File_Maker.Make_File()
+
+Want_To_Delete_Files = input("Did You Want to Delete Files Y / N ---> ")
+
+if Want_To_Delete_Files.lower() in ("y","yes"):
+    Delete_Files.Delete_File()
+elif Want_To_Delete_Files.lower() in ("n" , "no"):
+    print("Will Not Delete Files")
+else:
+    print("Wrong Input Try Again")
+
+E.Worm_Exit()

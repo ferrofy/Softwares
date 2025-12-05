@@ -3,16 +3,23 @@ import time
 import random
 import pyautogui
 import keyboard
+import sys
+import os
 
 from Files import Spamming_Text
-from Files import Entry
-from Files import Speed as Speed
+from Files import Speed
+
+base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+sys.path.append(base_dir)
+
+from FerroFy import Entry
+from FerroFy import Exit
 
 #Logo
-Entry.Logo_Entrance()
+Entry.Main_Logo()
 
 # Basic Info
-Entry.Basic_Info()
+Entry.Tracker_Basic_Info()
 
 # Basic Needs
 Speed.Set_Speed()
@@ -86,6 +93,4 @@ else:
 print("_" * 100)
 print("Total Message_Sent ---> " , Message_Sent)
 print("Total Time Used [Approx] ---> " , round(time.time() - Start_Time , 2)," Sec")
-print("_" * 100)
-print("Spammer Stoped")
-Exit = input("Press 'Enter' To Exit")
+Exit.Tracker_Exit()
