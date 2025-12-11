@@ -1,19 +1,30 @@
-def Tracker_Exit():
-    print("_" * 100)
-    print("Spammer Stoped")
+def Ask_Close():
     Close = input("Press 'Enter' To Exit...")
 
-def Chat_Bot_Exit():
-    global Exit
+def Spammer():
+    print("_" * 100)
+    print("Spammer Stoped")
+    Ask_Close()
+
+def Chat_Bot():
+    global Close
     Exit_Confirmation = input("\nWant To Exit Y/N ---> ").lower()
     if Exit_Confirmation in ("y","yes"):
-        Exit = True
+        Close = True
     elif Exit_Confirmation in ("n","no"):
-        Exit = False
+        Close = False
     else:
         print("Wrong Input Please Type y/n")
-        Chat_Bot_Exit()
+        Chat_Bot()
 
-def Worm_Exit():
+def Worm():
     print("Bye User Good Luck")
-    Close = input("Press Enter To Exit...")
+    Ask_Close()
+
+def Calculator():
+    print("Bye...")
+    Ask_Close()
+
+def YT():
+    print("Thank You")
+    Ask_Close()

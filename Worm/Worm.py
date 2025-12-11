@@ -23,4 +23,4 @@ elif Want_To_Delete_Files.lower() in ("n" , "no"):
 else:
     print("Wrong Input Try Again")
 
-E.Worm_Exit()
+E.Worm()

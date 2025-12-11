@@ -3,7 +3,7 @@ import subprocess
 import ensurepip
 import importlib
 
-PACKAGES = ["pandas"]
+Packages = ["sympy" , "numpy" , "pandas" , "pyautogui" , "keyboard" , "yt-dlp"]
 
 def ensure_pip():
     try:
@@ -35,9 +35,9 @@ def install_or_update(package):
 def main():
     print("Python Package Auto Installer\n")
     ensure_pip()
-    for pkg in PACKAGES:
+    for pkg in Packages:
         install_or_update(pkg)
-    print("\nAll packages processed\n")
+    print("\nAll Packages processed\n")
 
 if __name__ == "__main__":
     main()

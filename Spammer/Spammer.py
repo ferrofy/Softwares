@@ -15,11 +15,11 @@ sys.path.append(base_dir)
 from FerroFy import Entry
 from FerroFy import Exit
 
-#Logo
+# Logo
 Entry.Main_Logo()
 
 # Basic Info
-Entry.Tracker_Basic_Info()
+Entry.Spammer()
 
 # Basic Needs
 Speed.Set_Speed()
@@ -90,7 +90,8 @@ else:
             break
 
 # Exit
+
 print("_" * 100)
 print("Total Message_Sent ---> " , Message_Sent)
 print("Total Time Used [Approx] ---> " , round(time.time() - Start_Time , 2)," Sec")
-Exit.Tracker_Exit()
+Exit.Spammer()

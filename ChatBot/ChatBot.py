@@ -9,4 +9,4 @@ from FerroFy import Exit as Exit_File
 Exit_File.Exit = False
 
 while not Exit_File.Exit:
-    Exit_File.Chat_Bot_Exit()
+    Exit_File.Chat_Bot()

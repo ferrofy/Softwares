@@ -28,7 +28,7 @@ Spamming_Texts = (
     "Exploit", "Forensics", "Hashcat", "IDS", "IPS", "John the Ripper",
     "Kali Linux", "Malware Analysis", "Metasploit", "MITM", "OSINT", "OWASP",
     "Payload", "Pentesting", "Ransomware", "Red Team", "SIEM",
-    "Threat Intelligence", "Wireshark", "Zero-Day",
+    "Threat Intelligence", "Wireshark", "0-Day",
 
     # AI / ML / Data Science
     "AGI", "Augmented Reality", "CNN", "Computer Vision", "Data Mining",
@@ -43,7 +43,7 @@ Spamming_Texts = (
     "Hot Wallet", "Metaverse", "NFT", "PancakeSwap", "Polkadot",
     "Polygon", "Proof of Stake", "Proof of Work", "Rollup",
     "Seed Phrase", "Smart Contract", "Solana", "Uniswap", "Web3",
-    "zkSync",
+
 
     # Cloud / Hosting / Infrastructure
     "Apache", "Auto Scaling", "CDN", "Cloud Backup", "Cloud Computing",
