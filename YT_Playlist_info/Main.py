@@ -13,9 +13,24 @@ Entry.Main_Logo()
 
 def Duration(seconds):
     seconds = int(seconds)
-    t = time.gmtime(seconds)
-    h, m, s = t.tm_hour, t.tm_min, t.tm_sec
-    return f"{h}:{m:02d}:{s:02d}" if h else f"{m}:{s:02d}"
+    days = seconds // 86400
+    seconds %= 86400
+    h = seconds // 3600
+    seconds %= 3600
+    m = seconds // 60
+    s = seconds % 60
+
+    parts = []
+    if days:
+        parts.append(f"{days} days")
+    if h:
+        parts.append(f"{h} hours")
+    if m:
+        parts.append(f"{m} min")
+    parts.append(f"{s} sec")
+
+    return " | ".join(parts)
+
 
 def fetch_playlist_flat(url):
     opts = {"quiet": True, "no_warnings": True, "extract_flat": "in_playlist", "cachedir": False, "socket_timeout": 10}
